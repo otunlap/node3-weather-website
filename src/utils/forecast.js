@@ -1,7 +1,7 @@
 const request = require('request')
 
 const forecast = (latitude, longitude, callback) => {
-    const url = 'http://api.weatherstack.com/current?access_key=418dede9e720a1521f57905320a4278e&query='+ latitude + ',' + longitude +'&units=f'
+    const url = 'http://api.weatherstack.com/current?access_key=418dede9e720a1521f57905320a4278e&query='+ latitude + ',' + longitude 
     //const url = 'http://api.weatherstack.com/current?access_key=418dede9e720a1521f57905320a4278e&query=6.616865,3.508072&units=f'
 
     request ( {url, json: true}, (error,{ body } = {} ) => {
@@ -12,7 +12,7 @@ const forecast = (latitude, longitude, callback) => {
         } else {
             callback(undefined, 
                 body.current.weather_descriptions[0] + '. It is ' + body.current.temperature
-                    + ' in but feels like ' + body.current.feelslike + ' out.'
+                    + ' degrees inside but feels like ' + body.current.feelslike + ' degrees out.'
                     )
 
         }
